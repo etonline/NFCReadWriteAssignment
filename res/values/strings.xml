@@ -4,5 +4,10 @@
     <string name="app_name">NFC read write assignment</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="nfc_unsupported">Your devise doesn\'t support NFC.</string>
+    <string name="nfc_disabled">NFC is currently disabled on your devise.</string>
+    <string name="nfc_ready">Approach a NFC tag!</string>
+    <string name="hello_nfc">Hello NFC!</string>
+    
 
 </resources>
