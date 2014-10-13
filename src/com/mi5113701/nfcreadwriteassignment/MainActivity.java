@@ -2,6 +2,8 @@ package com.mi5113701.nfcreadwriteassignment;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.nfc.NfcAdapter;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,5 +77,12 @@ public class MainActivity extends NfcActivity {
 	@Override
 	protected void onTagDiscovered(Intent intent) {
 		Toast.makeText(this, getString(R.string.hello_nfc), Toast.LENGTH_SHORT).show();
+		//Get Tag object
+		Tag tag= intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+		String technologies="";
+		for (String txt : tag.getTechList()){
+			technologies = technologies + txt + '\n';
+		}
+		alertShow("This tag supprots:\n" + technologies + "\nLength of this tag:\n" + android.nfc.tech.Ndef.get(tag).getMaxSize() + " bytes.");
 	}
 }
