@@ -1,7 +1,10 @@
 package com.mi5113701.nfcreadwriteassignment;
 
+import java.io.IOException;
+
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.nfc.FormatException;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -79,10 +82,27 @@ public class MainActivity extends NfcActivity {
 		Toast.makeText(this, getString(R.string.hello_nfc), Toast.LENGTH_SHORT).show();
 		//Get Tag object
 		Tag tag= intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-		String technologies="";
+		/*String technologies="";
 		for (String txt : tag.getTechList()){
 			technologies = technologies + txt + '\n';
-		}
-		alertShow("This tag supprots:\n" + technologies + "\nLength of this tag:\n" + android.nfc.tech.Ndef.get(tag).getMaxSize() + " bytes.");
+		}*/
+		//Get an instance of Ndef for the given tag.
+		android.nfc.tech.Ndef currentNdef = android.nfc.tech.Ndef.get(tag);
+		alertShow("This tag is a " + convertTypeToString(currentNdef.getType()) + "\nLength of this tag:\n" + currentNdef.getMaxSize() + " bytes.");
+		alertShow(currentNdef.getCachedNdefMessage().toString());
+	}
+	
+	public String convertTypeToString(String constant) {
+		if (constant == "org.nfcforum.ndef.type1")
+			return "NFC FORUM TYPE 1";
+		else if (constant == "org.nfcforum.ndef.type2")
+			return "NFC FORUM TYPE 2";
+		else if (constant == "org.nfcforum.ndef.type3")
+			return "NFC FORUM TYPE 3";
+		else if (constant == "org.nfcforum.ndef.type4")
+			return "NFC FORUM TYPE 4";
+		else if (constant == "com.nxp.ndef.mifareclassic")
+			return "MIFARE CLASSIC";
+		return "Unknown";
 	}
 }
