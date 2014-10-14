@@ -88,7 +88,7 @@ public class MainActivity extends NfcActivity {
 		}*/
 		//Get an instance of Ndef for the given tag.
 		android.nfc.tech.Ndef currentNdef = android.nfc.tech.Ndef.get(tag);
-		alertShow("This tag is a " + convertTypeToString(currentNdef.getType()) + "\nLength of this tag:\n" + currentNdef.getMaxSize() + " bytes.");
+		alertShow("This tag is a " + convertTypeToString(currentNdef.getType()) + "\nLength of this tag: " + currentNdef.getMaxSize() + " bytes.");
 		alertShow(currentNdef.getCachedNdefMessage().toString());
 	}
 	
