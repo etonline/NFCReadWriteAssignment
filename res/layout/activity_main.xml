@@ -15,22 +15,42 @@
         android:text="@string/hello_world" />
 
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="29dp"
         android:layout_toRightOf="@+id/textView1"
         android:orientation="vertical" >
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignTop="@+id/linearLayout1"
+        android:maxLines="10"
+   		android:lines="10"
+        android:text="Information, 10 lines." />
 
     <Button
         android:id="@+id/btnReadTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/editText1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:text="Read Tag" />
+        android:text="Write Tag" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:hint="Telephone Number"
+        android:inputType="number" />
 
 </RelativeLayout>

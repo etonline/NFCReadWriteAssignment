@@ -7,7 +7,8 @@
     <string name="nfc_unsupported">Your devise doesn\'t support NFC.</string>
     <string name="nfc_disabled">NFC is currently disabled on your devise.</string>
     <string name="nfc_ready">Approach a NFC tag!</string>
-    <string name="hello_nfc">Hello NFC!</string>
+    <string name="hello_nfc">Current mode: Reading, please approach a NFC card.</string>
+    <string name="status_writing">Current mode: Writing, please approach a NFC card.</string>
     
 
 </resources>
